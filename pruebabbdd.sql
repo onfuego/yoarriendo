@@ -1,5 +1,5 @@
-CREATE DATABASE proyecto;
-USE proyecto;
+CREATE DATABASE yoarriendo;
+USE yoarriendo;
 CREATE TABLE category(
   id_category INT AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(255) NOT NULL,
