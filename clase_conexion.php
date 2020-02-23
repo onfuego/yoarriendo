@@ -48,23 +48,28 @@ class SQLConnection {
 
 		public function executeSentence($query) {
 		$this -> lastQuery = $query;
-		if (!$this -> result = mysqli_query($this -> connection, $query)) {
+		$this -> result = mysqli_query($this -> connection, $query);
+
+		if (!$this -> result) {
+
 			$this -> lastError = $this -> connection -> error;
-
-			if ($this -> result instanceof MySQLi_Result)
+			if ($this -> result instanceof MySQLi_Result){
 				return array();
-			else 
+			}
+			else {
 				return $this -> result;
-		}
+			}
 
-		if ($this -> result instanceof MySQLi_Result) { 
-			$data = mysqli_fetch_all($this -> result, MYSQLI_ASSOC);
-   			mysqli_free_result($this -> result);
-   			return $data;
-   		}
-   		else 
-   			return $this -> result;
-		
+		} else { 
+			if ($this -> result instanceof MySQLi_Result){ 
+				$data = mysqli_fetch_all($this -> result, MYSQLI_ASSOC);
+	   			mysqli_free_result($this -> result);
+	   			return $data;
+	   		}
+	   		else {
+	   			return $this -> result;
+	   		}
+		}
 	}
 
 		public function createUser($user) {
@@ -80,6 +85,63 @@ class SQLConnection {
 			);
 	}
 
+	public function createCategory($category) {
+			$this -> executeSentence("INSERT INTO category (name, parent) VALUES ('".$category -> name."',"
+				.$category -> parent. ");"
+			);
+	}
+
+	public function createPublication($publication) {
+			$this -> executeSentence("INSERT INTO publication (title, publi_img_url, description, price, fk_rut, fk_category) VALUES ('".$publication -> title."','"
+				.$publication -> publi_img_url."','"
+				.$publication -> description."','"
+				.$publication -> price."','"
+				.$publication -> fk_rut."',"
+				.$publication -> fk_category.");"
+			);
+	}
+
+	public function deleteUser($rut) {
+			$this -> executeSentence("DELETE FROM publication WHERE fk_rut='".$rut."';");
+			$this -> executeSentence("DELETE FROM user WHERE rut='".$rut."';");
+	}
+
+	public function deletePublicationByUser($rut) {
+			$this -> executeSentence("DELETE FROM publication WHERE fk_rut='".$rut."';");
+	}
+
+	public function deletePublicationById($id) {
+			$this -> executeSentence("DELETE FROM publication WHERE id_publication=".$id.";");
+	}
+
+	public function selectPublicationById($id) {
+			$this -> executeSentence("SELECT * FROM publication WHERE id_publication=".$id.";");
+	}
+
+	public function selectPublicationByUser($rut) {
+			$this -> executeSentence("SELECT * FROM publication WHERE fk_rut='".$rut."';");
+	}
+
+	public function selectPublicationByCategory($category) {
+			$this -> executeSentence("SELECT * FROM publication WHERE fk_category=".$category.";");
+	}
+
+	public function selectCategoryById($id) {
+			$this -> executeSentence("SELECT * FROM category WHERE id_category=".$id.";");
+	}
+
+	public function selectCategoryByParent($parent) {
+			$this -> executeSentence("SELECT * FROM category WHERE parent=".$parent.";");
+	}
+
+	public function filterPublicationByPriceASC() {
+			$this -> executeSentence("SELECT * FROM publication ORDER BY price ASC;");
+	}
+
+	public function filterPublicationByPriceDESC() {
+			$this -> executeSentence("SELECT * FROM publication ORDER BY price DESC;");
+	}
+
 	// Closes the connections
 	public function closeConnection() {
 		if ($this -> connection) {
@@ -89,14 +151,4 @@ class SQLConnection {
 
 }
 
-$mySQL = new SQLConnection();
-
-// $query = $mySQL -> executeSentence("SELECT * FROM publication");
-
-// printf ("%s", $query[0]['description']);
-
-
-$result = $mySQL -> createUser(new User("26002370-5", "Karelia", "Rasquin", "karelia.png", "1957-04-09", "raska09@gmail.com", "raska09", "930246472", "1234567890"));
-echo $mySQL -> lastError;
-echo $result;
 ?>

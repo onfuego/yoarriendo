@@ -27,21 +27,19 @@ class User {
 
 class Category {
 
-	var $nombre;
-	var $padre;
+	var $id_category;
+	var $name;
+	var $parent;
 
-	function __construct($nombre, $padre) {
-		$this -> nombre = $nombre;
-		$this -> padre = $padre;
-	}
-
-	function __construct($nombre) {
-		$this -> nombre = $nombre;
+	function __construct($name, $parent) {
+		$this -> name = $name;
+		$this -> parent = $parent;
 	}
 }
 
 class Publication {
 
+	var $id_publication;
 	var $title;
 	var $publi_img_url;
 	var $description;

@@ -2,10 +2,11 @@ CREATE DATABASE yoarriendo;
 USE yoarriendo;
 CREATE TABLE category(
   id_category INT AUTO_INCREMENT PRIMARY KEY,
-  nombre VARCHAR(255) NOT NULL,
+  name VARCHAR(255) NOT NULL,
   parent INT,
   FOREIGN KEY (parent) REFERENCES category (id_category)
 );
+USE yoarriendo;
 CREATE TABLE user(
   rut VARCHAR(10) PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
@@ -17,6 +18,7 @@ CREATE TABLE user(
   phone VARCHAR(20) NOT NULL,
   password VARCHAR(255) NOT NULL
 );
+USE yoarriendo;
 CREATE TABLE publication(
   id_publication INT AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(255) NOT NULL,
@@ -29,27 +31,27 @@ CREATE TABLE publication(
   FOREIGN KEY (fk_rut) REFERENCES user (rut)
 );
 
+USE yoarriendo;
+INSERT INTO `category` (`id_category`, `name`, `parent`) VALUES (NULL, 'Electrodomésticos', NULL);
+INSERT INTO `category` (`id_category`, `name`, `parent`) VALUES (NULL, 'Electrónica, Audio y Video', NULL);
 
-INSERT INTO `category` (`id_category`, `nombre`, `parent`) VALUES (NULL, 'Electrodomésticos', NULL);
-INSERT INTO `category` (`id_category`, `nombre`, `parent`) VALUES (NULL, 'Electrónica, Audio y Video', NULL);
-
-INSERT INTO `category` (`id_category`, `nombre`, `parent`) VALUES (NULL, 'Videocámaras', '2');
-INSERT INTO `category` (`id_category`, `nombre`, `parent`) VALUES (NULL, 'TV - Televisores', '2');
-INSERT INTO `category` (`id_category`, `nombre`, `parent`) VALUES (NULL, 'LED', '4');
-INSERT INTO `category` (`id_category`, `nombre`, `parent`) VALUES (NULL, 'LCD', '4');
-INSERT INTO `category` (`id_category`, `nombre`, `parent`) VALUES (NULL, 'Plasma', '4');
-INSERT INTO `category` (`id_category`, `nombre`, `parent`) VALUES (NULL, 'Lavadoras y Secadoras', '1');
-INSERT INTO `category` (`id_category`, `nombre`, `parent`) VALUES (NULL, 'Neveras y Congeladoras', '1');
-INSERT INTO `category` (`id_category`, `nombre`, `parent`) VALUES (NULL, 'Lavadoras', '6');
-INSERT INTO `category` (`id_category`, `nombre`, `parent`) VALUES (NULL, 'Secadoras', '6');
-INSERT INTO `category` (`id_category`, `nombre`, `parent`) VALUES (NULL, 'Lavadorasecadora', '6');
-INSERT INTO `category` (`id_category`, `nombre`, `parent`) VALUES (NULL, 'Respuestos y Accesorios', '9');
-INSERT INTO `category` (`id_category`, `nombre`, `parent`) VALUES (NULL, 'Motores', '13');
-INSERT INTO `category` (`id_category`, `nombre`, `parent`) VALUES (NULL, 'Filtros', '13');
-INSERT INTO `category` (`id_category`, `nombre`, `parent`) VALUES (NULL, 'Neveras', '9');
-INSERT INTO `category` (`id_category`, `nombre`, `parent`) VALUES (NULL, 'Congeladoras', '9');
-INSERT INTO `category` (`id_category`, `nombre`, `parent`) VALUES (NULL, 'No-Frost', '16');
-INSERT INTO `category` (`id_category`, `nombre`, `parent`) VALUES (NULL, 'Frost', '16');
+INSERT INTO `category` (`id_category`, `name`, `parent`) VALUES (NULL, 'Videocámaras', '2');
+INSERT INTO `category` (`id_category`, `name`, `parent`) VALUES (NULL, 'TV - Televisores', '2');
+INSERT INTO `category` (`id_category`, `name`, `parent`) VALUES (NULL, 'LED', '4');
+INSERT INTO `category` (`id_category`, `name`, `parent`) VALUES (NULL, 'LCD', '4');
+INSERT INTO `category` (`id_category`, `name`, `parent`) VALUES (NULL, 'Plasma', '4');
+INSERT INTO `category` (`id_category`, `name`, `parent`) VALUES (NULL, 'Lavadoras y Secadoras', '1');
+INSERT INTO `category` (`id_category`, `name`, `parent`) VALUES (NULL, 'Neveras y Congeladoras', '1');
+INSERT INTO `category` (`id_category`, `name`, `parent`) VALUES (NULL, 'Lavadoras', '6');
+INSERT INTO `category` (`id_category`, `name`, `parent`) VALUES (NULL, 'Secadoras', '6');
+INSERT INTO `category` (`id_category`, `name`, `parent`) VALUES (NULL, 'Lavadorasecadora', '6');
+INSERT INTO `category` (`id_category`, `name`, `parent`) VALUES (NULL, 'Respuestos y Accesorios', '9');
+INSERT INTO `category` (`id_category`, `name`, `parent`) VALUES (NULL, 'Motores', '13');
+INSERT INTO `category` (`id_category`, `name`, `parent`) VALUES (NULL, 'Filtros', '13');
+INSERT INTO `category` (`id_category`, `name`, `parent`) VALUES (NULL, 'Neveras', '9');
+INSERT INTO `category` (`id_category`, `name`, `parent`) VALUES (NULL, 'Congeladoras', '9');
+INSERT INTO `category` (`id_category`, `name`, `parent`) VALUES (NULL, 'No-Frost', '16');
+INSERT INTO `category` (`id_category`, `name`, `parent`) VALUES (NULL, 'Frost', '16');
 
 
 INSERT INTO `user` (`rut`, `name`, `last_name`, `user_img_url`, `birthday`, `mail`, `nickname`, `phone`, `password`) 
