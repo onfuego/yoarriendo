@@ -138,6 +138,10 @@ class SQLConnection {
 			return $this -> executeSentence("SELECT * FROM category WHERE parent=".$parent.";");
 	}
 
+	public function searchPublicationByName($name) {
+			return $this -> executeSentence("SELECT * FROM publication WHERE title LIKE '% ".$parent." %'';");
+	}
+
 	public function filterPublicationByPriceASC() {
 			return $this -> executeSentence("SELECT * FROM publication ORDER BY price ASC;");
 	}
