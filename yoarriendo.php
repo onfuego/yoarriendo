@@ -21,7 +21,7 @@
 
 <body>
     <?php
-    while($resultado){
+    foreach($resultado AS $row){
     ?>
     <!-- Articulo -->
     <li class="list-group-item">
@@ -33,9 +33,9 @@
             <!-- Contenido -->
             <div class="col-10 col-lg-11 col-sm-10">
                 <p class="card-text float-right"><small class="text-muted">3 mins ago</small></p>
-                <h6 class="font-weight-bold"><?php echo $resultado['name'] ?><h6>
-                    <p><?php echo $resultado['description'] ?></p>
-                    <h4><?php echo $resultado['price'] ?></h4>
+                <h6 class="font-weight-bold"><?php echo $row['title'] ?><h6>
+                    <p><?php echo $row['description'] ?></p>
+                    <h4><?php echo $row['price'] ?></h4>
                     <a href="#" class="btn btn-outline-primary">Más Información</a>
             </div><!-- Contenido -->
         </div>

@@ -103,47 +103,47 @@ class SQLConnection {
 
 	public function deleteUser($rut) {
 			$this -> executeSentence("DELETE FROM publication WHERE fk_rut='".$rut."';");
-			$this -> executeSentence("DELETE FROM user WHERE rut='".$rut."';");
+			return $this -> executeSentence("DELETE FROM user WHERE rut='".$rut."';");
 	}
 
 	public function deletePublicationByUser($rut) {
-			$this -> executeSentence("DELETE FROM publication WHERE fk_rut='".$rut."';");
+			return $this -> executeSentence("DELETE FROM publication WHERE fk_rut='".$rut."';");
 	}
 
 	public function deletePublicationById($id) {
-			$this -> executeSentence("DELETE FROM publication WHERE id_publication=".$id.";");
+			return $this -> executeSentence("DELETE FROM publication WHERE id_publication=".$id.";");
 	}
 
 	public function selectPublicationById($id) {
-			$this -> executeSentence("SELECT * FROM publication WHERE id_publication=".$id.";");
+			return $this -> executeSentence("SELECT * FROM publication WHERE id_publication=".$id.";");
 	}
 
 	public function getPublications() {
-			$this -> executeSentence("SELECT * FROM publication;");
+			return $this -> executeSentence("SELECT * FROM publication;");
 	}
 
 	public function selectPublicationByUser($rut) {
-			$this -> executeSentence("SELECT * FROM publication WHERE fk_rut='".$rut."';");
+			return $this -> executeSentence("SELECT * FROM publication WHERE fk_rut='".$rut."';");
 	}
 
 	public function selectPublicationByCategory($category) {
-			$this -> executeSentence("SELECT * FROM publication WHERE fk_category=".$category.";");
+			return $this -> executeSentence("SELECT * FROM publication WHERE fk_category=".$category.";");
 	}
 
 	public function selectCategoryById($id) {
-			$this -> executeSentence("SELECT * FROM category WHERE id_category=".$id.";");
+			return $this -> executeSentence("SELECT * FROM category WHERE id_category=".$id.";");
 	}
 
 	public function selectCategoryByParent($parent) {
-			$this -> executeSentence("SELECT * FROM category WHERE parent=".$parent.";");
+			return $this -> executeSentence("SELECT * FROM category WHERE parent=".$parent.";");
 	}
 
 	public function filterPublicationByPriceASC() {
-			$this -> executeSentence("SELECT * FROM publication ORDER BY price ASC;");
+			return $this -> executeSentence("SELECT * FROM publication ORDER BY price ASC;");
 	}
 
 	public function filterPublicationByPriceDESC() {
-			$this -> executeSentence("SELECT * FROM publication ORDER BY price DESC;");
+			return $this -> executeSentence("SELECT * FROM publication ORDER BY price DESC;");
 	}
 
 	// Closes the connections
