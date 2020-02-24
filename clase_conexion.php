@@ -60,8 +60,8 @@ class SQLConnection {
 				return $this -> result;
 			}
 
-		} else { 
-			if ($this -> result instanceof MySQLi_Result){ 
+		} else {
+			if ($this -> result instanceof MySQLi_Result){
 				$data = mysqli_fetch_all($this -> result, MYSQLI_ASSOC);
 	   			mysqli_free_result($this -> result);
 	   			return $data;
@@ -116,6 +116,10 @@ class SQLConnection {
 
 	public function selectPublicationById($id) {
 			$this -> executeSentence("SELECT * FROM publication WHERE id_publication=".$id.";");
+	}
+
+	public function getPublications() {
+			$this -> executeSentence("SELECT * FROM publication;");
 	}
 
 	public function selectPublicationByUser($rut) {
