@@ -1,12 +1,6 @@
-<?php
-    include_once('clase_conexion.php');
-	$mysql = new SQLConnection();
-    $resultado = $mysql -> getPublications();
-?>
-
-
 <!doctype html>
 <html lang="en">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -15,11 +9,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>YoArriendo.cl</title>
+    <title>Hello, world!</title>
 </head>
 
 <body>
-    <!-- navbar -->
     <div class="container-fluid bg-primary fixed-top lead">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <a class="navbar-brand font-weight-bold" href="index.html">YoArriendo.cl</a>
@@ -28,10 +21,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <!-- Logo Corporativo -->
                     <li class="nav-item active">
                         <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
-                    </li><!-- Logo Corporativo -->
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Productos <span class="sr-only">(current)</span></a>
                     </li>
@@ -39,11 +31,10 @@
                         <a class="nav-link" href="#">Acerca de <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
-                <!-- Búsqueda -->
                 <form class="form-inline my-2 my-lg-0">
                       <input class="form-control mr-sm-2" type="search" placeholder="Buscar Producto..." aria-label="Search">
                       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-                </form><!-- Búsqueda -->
+                    </form>
             </div>
         </nav>
     </div><!-- navbar -->
@@ -101,7 +92,7 @@
         </div>
     </div><!-- Sistema de columnas -->
 
-    <footer class="container-fluid bg-primary text-center text-white mt-3 py-3 fixed-bottom">
+    <footer class="container-fluid bg-primary text-center text-white mt-3 py-3">
         <p>Todos los derechos Reservados YoArriendo.cl</p>
     </footer>
     <!-- Optional JavaScript -->

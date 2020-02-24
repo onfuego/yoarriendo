@@ -73,7 +73,7 @@ class SQLConnection {
 	}
 
 		public function createUser($user) {
-			$this -> executeSentence("INSERT INTO user VALUES ('".$user -> rut."','"
+			return $this -> executeSentence("INSERT INTO user VALUES ('".$user -> rut."','"
 				.$user -> name."','"
 				.$user -> last_name."','"
 				.$user -> user_img_url."','"
@@ -86,13 +86,13 @@ class SQLConnection {
 	}
 
 	public function createCategory($category) {
-			$this -> executeSentence("INSERT INTO category (name, parent) VALUES ('".$category -> name."',"
+			return $this -> executeSentence("INSERT INTO category (name, parent) VALUES ('".$category -> name."',"
 				.$category -> parent. ");"
 			);
 	}
 
 	public function createPublication($publication) {
-			$this -> executeSentence("INSERT INTO publication (title, publi_img_url, description, price, fk_rut, fk_category) VALUES ('".$publication -> title."','"
+			return $this -> executeSentence("INSERT INTO publication (title, publi_img_url, description, price, fk_rut, fk_category) VALUES ('".$publication -> title."','"
 				.$publication -> publi_img_url."','"
 				.$publication -> description."','"
 				.$publication -> price."','"
@@ -102,7 +102,7 @@ class SQLConnection {
 	}
 
 	public function deleteUser($rut) {
-			$this -> executeSentence("DELETE FROM publication WHERE fk_rut='".$rut."';");
+			return $this -> executeSentence("DELETE FROM publication WHERE fk_rut='".$rut."';");
 			return $this -> executeSentence("DELETE FROM user WHERE rut='".$rut."';");
 	}
 
